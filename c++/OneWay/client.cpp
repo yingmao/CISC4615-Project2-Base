@@ -34,13 +34,5 @@ int main(int argc,char* argv[])
     int send_num = sendto(sock_fd, &sample, sizeof(sample), 0, (struct sockaddr *)&addr_serv, sizeof(struct sockaddr_in));
     printf("Send %d bytes finished.\n",send_num);
 
-    char buff[100] = {0};
-    recvfrom(sock_fd, buff, sizeof(sample), 0, NULL, NULL);
-    memcpy(&sample,buff,sizeof(sample));
-    char num[50];
-    sprintf(num,"%d",sample.num);
-    cout<<"string:"<<sample.str<<endl<<"num::"<<num<<endl;
-
-
     close(sock_fd);
 }
